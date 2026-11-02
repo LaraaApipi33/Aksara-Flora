@@ -7,7 +7,7 @@
    pesanan cuma disimpan di browser (localStorage), belum masuk Sheets.
    ========================================================== */
 const SHOP_CONFIG = {
-    SHEET_URL: 'https://script.google.com/macros/s/AKfycbzWhBx__yDgfYAJyZ49YVT045XpRCifb3kPk47imD5sW5WlHc_L7UCGIQ01B0Tjwqzd/exec',  // contoh: 'https://script.google.com/macros/s/AKfycb.../exec'
+    SHEET_URL: 'https://script.google.com/macros/s/AKfycbzrL2Exz0W-2129thi7RojGj-wadLLW9RBAeNlITx-xxoUQK7xPsFi8X6FgdFIWeQXJCg/exec',  // contoh: 'https://script.google.com/macros/s/AKfycb.../exec'
 
     // Google Analytics 4: isi dengan Measurement ID, contoh: 'G-ABCDE12345'
     // Kosong = Analytics mati. Saat dibuka lewat localhost / file langsung, Analytics juga tidak aktif.
