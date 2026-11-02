@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Aksara Flora</title>
+    <meta name="description" content="Dashboard penjualan Aksara Flora.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-no-track>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand"><img class="brand-icon" src="Aksaraflora.jpeg" alt="Logo Aksara Flora">Aksara Flora</a>
+            <button class="nav-toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+            <nav class="main-nav" id="main-nav">
+                <a href="index.html">Beranda</a>
+                <a href="tentang.html">Tentang Kami</a>
+                <a href="produk.html">Katalog</a>
+                <a href="faq.html">FAQ</a>
+                <a href="keranjang.html">🛒 Keranjang<span class="cart-count" hidden>0</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="page-title">
+            <div class="container">
+                <h2>Dashboard Penjualan</h2>
+                <p>Ringkasan pesanan dan penjualan Aksara Flora.</p>
+            </div>
+        </section>
+        <section class="section" style="padding-top:20px">
+            <div class="container" id="dash-root"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <a href="index.html" class="brand"><span aria-hidden="true">🌸</span> Aksara Flora</a>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            <small>&copy; 2026 Aksara Flora. All Rights Reserved.</small>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
