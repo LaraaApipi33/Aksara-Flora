@@ -11,6 +11,6 @@ const SHOP_CONFIG = {
 
     // Google Analytics 4: isi dengan Measurement ID, contoh: 'G-ABCDE12345'
     // Kosong = Analytics mati. Saat dibuka lewat localhost / file langsung, Analytics juga tidak aktif.
-    GA_ID: 'G-127LPY7620',
+    GA_ID: 'G-8V4X5NG8C8',
     GA_TRACK_LOCAL: false   // ubah ke true hanya kalau mau ngetes lewat localhost (GA DebugView)
 };
