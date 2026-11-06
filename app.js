@@ -4,37 +4,50 @@
    { id, qty }. Harga selalu diambil dari katalog PRODUCTS.
    ========================================================== */
 
-/* ---------- Katalog produk ---------- */
-const PRODUCTS = [
-    { id: 'mawar-merah', name: 'Buket Mawar Merah', price: 185000, tag: 'Best Seller',
-      desc: '10 tangkai mawar merah segar dengan pembungkus elegan.',
-      emoji: '🌹', emoji2: '', bg: 'linear-gradient(135deg,#ff8fab,#c9184a)' },
-    { id: 'tulip-pastel', name: 'Buket Tulip Pastel', price: 165000, tag: 'Favorit',
-      desc: '7 tangkai tulip warna pastel yang lembut dan ceria.',
-      emoji: '🌷', emoji2: '', bg: 'linear-gradient(135deg,#ffc2d1,#ff8fab)' },
-    { id: 'matahari', name: 'Bunga Matahari Ceria', price: 120000, tag: '',
-      desc: '5 tangkai bunga matahari untuk membawa suasana hangat.',
-      emoji: '🌻', emoji2: '', bg: 'linear-gradient(135deg,#ffe066,#f59f00)' },
-    { id: 'daisy', name: 'Buket Daisy Putih', price: 90000, tag: 'Hemat',
-      desc: 'Daisy putih mungil yang manis, cocok untuk hadiah sederhana.',
-      emoji: '🌼', emoji2: '', bg: 'linear-gradient(135deg,#fff3bf,#ffd43b)' },
-    { id: 'campur', name: 'Buket Campur Premium', price: 210000, tag: 'Premium',
-      desc: 'Perpaduan berbagai bunga pilihan dalam satu buket besar.',
-      emoji: '💐', emoji2: '✨', bg: 'linear-gradient(135deg,#e5b3fe,#ff8fab)' },
-    { id: 'wisuda', name: 'Buket Wisuda', price: 175000, tag: 'Wisuda',
-      desc: 'Buket untuk merayakan kelulusan, lengkap dengan boneka kecil.',
-      emoji: '💐', emoji2: '🎓', bg: 'linear-gradient(135deg,#a5d8ff,#9775fa)' },
-    { id: 'anggrek', name: 'Anggrek Bulan (Pot)', price: 250000, tag: 'Tanaman',
-      desc: 'Anggrek bulan dalam pot cantik, tahan lama dan mudah dirawat.',
-      emoji: '🌸', emoji2: '🪴', bg: 'linear-gradient(135deg,#fcc2d7,#a9e34b)' },
-    { id: 'kering', name: 'Buket Bunga Kering', price: 140000, tag: 'Tahan Lama',
-      desc: 'Rangkaian bunga kering bergaya rustic yang awet dipajang.',
-      emoji: '🌾', emoji2: '', bg: 'linear-gradient(135deg,#f3d9b1,#c68b59)' }
+/* ---------- Katalog produk ----------
+   prices: tangkai = harga per tangkai, buket = harga saat beli buket, paket = harga paket.
+   Ubah harga / tambah bunga di sini, semua halaman ikut berubah. */
+const CATEGORIES = [
+    { id: 'Bunga',  title: 'Bunga Segar',   desc: 'Pilih per tangkai atau buket, sesuai kebutuhanmu.' },
+    { id: 'Filler', title: 'Daun & Filler', desc: 'Pelengkap hijau supaya rangkaian terlihat penuh.' },
+    { id: 'Paket',  title: 'Paket',         desc: 'Paket siap beri, tinggal pesan.' }
 ];
 
-const PROMOS = { BUNGA10: { percent: 10, label: 'Diskon 10%' } };
+const PRODUCTS = [
+    { id: 'mawar',     name: 'Bunga Mawar',     category: 'Bunga', image: 'images/mawar.jpg',     desc: 'Mawar merah klasik, simbol rasa sayang.',        prices: { tangkai: 20000, buket: 15000 } },
+    { id: 'krisan',    name: 'Bunga Krisan',    category: 'Bunga', image: 'images/krisan.jpg',    desc: 'Krisan pink dengan kelopak berlapis.',           prices: { tangkai: 20000, buket: 10000 } },
+    { id: 'gompi',     name: 'Bunga Gompi',     category: 'Bunga', image: 'images/gompi.jpg',     desc: 'Bunga bulat berwarna putih krem yang lembut.',   prices: { tangkai: 20000, buket: 15000 } },
+    { id: 'pompom',    name: 'Bunga Pompom',    category: 'Bunga', image: 'images/pompom.jpg',    desc: 'Bunga putih bulat mungil yang manis.',           prices: { tangkai: 20000, buket: 10000 } },
+    { id: 'matahari',  name: 'Bunga Matahari',  category: 'Bunga', image: 'images/matahari.jpg',  desc: 'Kuning cerah, pembawa semangat.',                prices: { tangkai: 30000, buket: 25000 } },
+    { id: 'gerbera',   name: 'Bunga Gerbera',   category: 'Bunga', image: 'images/gerbera.jpg',   desc: 'Warna-warni ceria seperti bunga daisy besar.',   prices: { tangkai: 20000, buket: 10000 } },
+    { id: 'hydrangea', name: 'Bunga Hydrangea', category: 'Bunga', image: 'images/hydrangea.jpg', desc: 'Gerombol kelopak biru keunguan yang mewah.',     prices: { tangkai: 35000, buket: 30000 } },
+    { id: 'pikok',     name: 'Bunga Pikok',     category: 'Bunga', image: 'images/pikok.jpg',     desc: 'Bunga kecil putih yang rimbun dan manis.',       prices: { tangkai: 20000, buket: 5000 } },
+    { id: 'lily',      name: 'Bunga Lily',      category: 'Bunga', image: 'images/lily.jpg',      desc: 'Putih anggun dengan aroma yang elegan.',         prices: { tangkai: 100000, buket: 90000 } },
+    { id: 'daun-talaspi', name: 'Daun Talaspi', category: 'Filler', image: 'images/daun-talaspi.jpg', desc: 'Daun hijau halus untuk memperindah rangkaian.', prices: { buket: 10000 } },
+    { id: 'sweet-six', name: 'The Sweet Six',   category: 'Paket', image: 'images/sweet-six.jpg', desc: '6 tangkai mawar merah + bunga filler, dibungkus cantik.', prices: { paket: 100000 } }
+];
+
+/* Produk favorit di beranda (paketan). only = jenis pembelian yang ditampilkan. */
+const FAVORITES = [
+    { id: 'mawar',     only: 'tangkai', title: 'Mawar Per Tangkai', desc: 'Satu tangkai mawar merah, pas buat kejutan kecil.' },
+    { id: 'sweet-six', only: 'paket',   title: 'The Sweet Six',     desc: '6 tangkai mawar + bunga filler, dibungkus cantik.' }
+];
+
+const TYPE_LABEL = { tangkai: 'Per Tangkai', buket: 'Buket', paket: 'Paket' };
+
+/* Promo 11.11: diskon 11%, hanya berlaku 11 November 2026 (waktu Jakarta) */
+const PROMOS = {
+    BEHINDTHISMOMENT: { percent: 11, label: 'Diskon 11% (11.11)', date: '2026-11-11', dateLabel: '11 November 2026' }
+};
+function todayJakarta() {
+    return new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Jakarta' });
+}
+function promoActive(code) {
+    const p = PROMOS[code];
+    return !!p && (!p.date || p.date === todayJakarta());
+}
 const MAX_QTY = 20;
-const CART_KEY = 'aksarafloraCart';
+const CART_KEY = 'aksarafloraCart2';
 const PROMO_KEY = 'aksarafloraPromo';
 const ORDERS_KEY = 'aksarafloraOrders';
 
@@ -75,57 +88,67 @@ function initAnalytics() {
 function track(name, params) { if (GA_ON && window.gtag && !document.body.hasAttribute('data-no-track')) window.gtag('event', name, params || {}); }
 const gaItems = lines => lines.map(l => ({ item_id: l.id, item_name: l.name, price: l.price, quantity: l.qty }));
 
-/* ---------- Keranjang ---------- */
+/* ---------- Keranjang ----------
+   Item keranjang = { id, type, qty }. type = tangkai | buket | paket.
+   Harga selalu diambil dari PRODUCTS, bukan dari localStorage. */
+const lineKey = (id, type) => id + '|' + type;
+const lineName = (p, type) => p.category === 'Paket' || p.category === 'Filler' ? p.name : p.name + ' (' + TYPE_LABEL[type] + ')';
+
 function getCart() {
     const raw = load(CART_KEY);
     if (!Array.isArray(raw)) return [];
-    return raw.filter(i => i && findProduct(i.id) && Number.isInteger(i.qty) && i.qty > 0)
-              .map(i => ({ id: i.id, qty: Math.min(i.qty, MAX_QTY) }));
+    return raw.filter(i => {
+        const p = i && findProduct(i.id);
+        return p && p.prices[i.type] && Number.isInteger(i.qty) && i.qty > 0;
+    }).map(i => ({ id: i.id, type: i.type, qty: Math.min(i.qty, MAX_QTY) }));
 }
 function saveCart(cart) { store(CART_KEY, cart); updateBadge(); }
 
-function addToCart(id) {
+function addToCart(id, type, qty) {
+    const p = findProduct(id);
+    qty = parseInt(qty, 10);
+    if (!p || !p.prices[type] || !Number.isInteger(qty) || qty < 1) { toast('Pilihan atau jumlah tidak valid'); return; }
     const cart = getCart();
-    const row = cart.find(i => i.id === id);
+    const row = cart.find(i => i.id === id && i.type === type);
     if (row) {
-        if (row.qty >= MAX_QTY) { toast('Maksimal ' + MAX_QTY + ' porsi per menu'); return; }
-        row.qty++;
+        if (row.qty + qty > MAX_QTY) { toast('Maksimal ' + MAX_QTY + ' per item'); return; }
+        row.qty += qty;
     } else {
-        cart.push({ id, qty: 1 });
+        cart.push({ id, type, qty: Math.min(qty, MAX_QTY) });
     }
     saveCart(cart);
-    const p = findProduct(id);
-    track('add_to_cart', { currency: 'IDR', value: p.price, items: gaItems([{ id: p.id, name: p.name, price: p.price, qty: 1 }]) });
-    toast(p.name + ' masuk keranjang 🛒');
+    track('add_to_cart', { currency: 'IDR', value: p.prices[type] * qty, items: gaItems([{ id: p.id, name: lineName(p, type), price: p.prices[type], qty }]) });
+    toast(lineName(p, type) + ' masuk keranjang 🛒');
 }
-function changeQty(id, delta) {
+function changeQty(id, type, delta) {
     const cart = getCart();
-    const row = cart.find(i => i.id === id);
+    const row = cart.find(i => i.id === id && i.type === type);
     if (!row) return;
     row.qty = Math.min(MAX_QTY, row.qty + delta);
     saveCart(cart.filter(i => i.qty > 0));
 }
-function removeItem(id) {
-    const row = getCart().find(i => i.id === id);
+function removeItem(id, type) {
+    const row = getCart().find(i => i.id === id && i.type === type);
     if (row) {
         const p = findProduct(id);
-        track('remove_from_cart', { currency: 'IDR', value: p.price * row.qty, items: gaItems([{ id: p.id, name: p.name, price: p.price, qty: row.qty }]) });
+        track('remove_from_cart', { currency: 'IDR', value: p.prices[type] * row.qty, items: gaItems([{ id: p.id, name: lineName(p, type), price: p.prices[type], qty: row.qty }]) });
     }
-    saveCart(getCart().filter(i => i.id !== id));
+    saveCart(getCart().filter(i => !(i.id === id && i.type === type)));
 }
 function clearCart() { store(CART_KEY, null); store(PROMO_KEY, null); updateBadge(); }
 
 function cartLines() {
     return getCart().map(i => {
         const p = findProduct(i.id);
-        return { id: p.id, name: p.name, price: p.price, qty: i.qty, subtotal: p.price * i.qty, product: p };
+        const price = p.prices[i.type];
+        return { id: p.id, type: i.type, name: lineName(p, i.type), price, qty: i.qty, subtotal: price * i.qty, product: p };
     });
 }
 function calcTotals() {
     const lines = cartLines();
     const subtotal = lines.reduce((s, l) => s + l.subtotal, 0);
     const code = load(PROMO_KEY);
-    const promo = code && PROMOS[code] ? PROMOS[code] : null;
+    const promo = code && promoActive(code) ? PROMOS[code] : null;
     const discount = promo ? Math.round(subtotal * promo.percent / 100) : 0;
     return { lines, subtotal, discount, total: subtotal - discount, code: promo ? code : '', promo };
 }
@@ -170,37 +193,71 @@ function initNav() {
 }
 
 /* ---------- Katalog (index & produk) ---------- */
-function productCard(p) {
+function typeOptions(p, only) {
+    return ['tangkai', 'buket', 'paket']
+        .filter(t => p.prices[t] && (!only || t === only))
+        .map(t => `<option value="${t}">${TYPE_LABEL[t]} - ${rupiah(p.prices[t])}</option>`)
+        .join('');
+}
+
+function productCard(p, opts) {
+    opts = opts || {};
+    const only = opts.only || '';
+    const key = (opts.prefix || '') + p.id;
+    const types = ['tangkai', 'buket', 'paket'].filter(t => p.prices[t] && (!only || t === only));
+    const typeField = types.length === 1
+        ? `<div class="type-fixed">${TYPE_LABEL[types[0]]} - <strong>${rupiah(p.prices[types[0]])}</strong></div>
+           <input type="hidden" id="type-${key}" value="${types[0]}">`
+        : `<label for="type-${key}">Jenis pembelian</label>
+           <select id="type-${key}">${typeOptions(p, only)}</select>`;
     return `
     <article class="product-card">
-        <div class="product-visual" style="background:${p.bg}">
-            <span class="product-emoji" aria-hidden="true">${p.emoji}</span>
-            ${p.emoji2 ? `<span class="product-emoji-2" aria-hidden="true">${p.emoji2}</span>` : ''}
-            ${p.tag ? `<span class="badge">${p.tag}</span>` : ''}
+        <div class="product-visual">
+            <img src="${p.image}" alt="${p.name}" class="product-image" loading="lazy">
+            ${opts.badge ? `<span class="badge">${opts.badge}</span>` : ''}
         </div>
         <div class="product-body">
-            <h3>${p.name}</h3>
-            <p class="product-desc">${p.desc}</p>
-            <div class="product-foot">
-                <span class="price">${rupiah(p.price)}</span>
-                <button type="button" class="btn btn-primary btn-sm" data-add="${p.id}">+ Keranjang</button>
+            <h3>${opts.title || p.name}</h3>
+            <p class="product-desc">${opts.desc || p.desc}</p>
+            ${typeField}
+            <div class="buy-row">
+                <div class="qty-field">
+                    <label for="qty-${key}">Jumlah</label>
+                    <input type="number" id="qty-${key}" value="1" min="1" max="${MAX_QTY}" inputmode="numeric">
+                </div>
+                <button type="button" class="btn btn-primary btn-sm" data-add="${p.id}" data-key="${key}">+ Keranjang</button>
             </div>
         </div>
     </article>`;
 }
 
+function categorySection(cat) {
+    const list = PRODUCTS.filter(p => p.category === cat.id);
+    if (!list.length) return '';
+    return `
+    <section class="cat-section" id="kategori-${cat.id.toLowerCase()}">
+        <div class="cat-head"><h3>${cat.title}</h3><p>${cat.desc}</p></div>
+        <div class="products-grid">${list.map(p => productCard(p)).join('')}</div>
+    </section>`;
+}
+
 function initCatalog() {
-    const grids = [['#featured-grid', PRODUCTS.slice(0, 3)], ['#product-grid', PRODUCTS]];
-    grids.forEach(([sel, list]) => {
-        const grid = $(sel);
-        if (grid) grid.innerHTML = list.map(productCard).join('');
-    });
-    if ($('#product-grid')) {
-        track('view_item_list', { item_list_name: 'Menu', items: PRODUCTS.map(p => ({ item_id: p.id, item_name: p.name, price: p.price })) });
+    const fav = $('#featured-grid');
+    if (fav) {
+        fav.innerHTML = FAVORITES.map(f => productCard(findProduct(f.id), { only: f.only, title: f.title, desc: f.desc, badge: '⭐ Favorit', prefix: 'fav-' })).join('');
+    }
+    const root = $('#product-grid');
+    if (root) {
+        root.innerHTML = `
+            <nav class="cat-nav" aria-label="Kategori">${CATEGORIES.map(c => `<a href="#kategori-${c.id.toLowerCase()}">${c.title}</a>`).join('')}</nav>
+            ${CATEGORIES.map(categorySection).join('')}`;
+        track('view_item_list', { item_list_name: 'Katalog', items: PRODUCTS.map(p => ({ item_id: p.id, item_name: p.name })) });
     }
     document.addEventListener('click', e => {
         const btn = e.target.closest('[data-add]');
-        if (btn) addToCart(btn.dataset.add);
+        if (!btn) return;
+        const key = btn.dataset.key;
+        addToCart(btn.dataset.add, $('#type-' + key).value, $('#qty-' + key).value);
     });
 }
 
@@ -223,26 +280,26 @@ function renderCart() {
                 <span class="big" aria-hidden="true">🛒</span>
                 <h3>Keranjang kamu masih kosong</h3>
                 <p>Yuk pilih bunga favoritmu dulu.</p>
-                <a href="produk.html" class="btn btn-primary">Lihat Menu</a>
+                <a href="produk.html" class="btn btn-primary">Lihat Katalog</a>
             </div>`;
         return;
     }
 
     const items = t.lines.map(l => `
         <div class="cart-item">
-            <div class="cart-thumb" style="background:${l.product.bg}" aria-hidden="true">${l.product.emoji}</div>
+            <img class="cart-thumb" src="${l.product.image}" alt="" aria-hidden="true">
             <div class="cart-info">
                 <h4>${l.name}</h4>
-                <div class="unit">${rupiah(l.price)} / porsi</div>
+                <div class="unit">${rupiah(l.price)} / ${l.type === 'paket' ? 'paket' : (l.type === 'buket' ? 'buket' : 'tangkai')}</div>
             </div>
             <div class="cart-side">
                 <div class="qty">
-                    <button type="button" data-qty="-1" data-id="${l.id}" aria-label="Kurangi ${l.name}">−</button>
+                    <button type="button" data-qty="-1" data-id="${l.id}" data-type="${l.type}" aria-label="Kurangi ${l.name}">−</button>
                     <span>${l.qty}</span>
-                    <button type="button" data-qty="1" data-id="${l.id}" aria-label="Tambah ${l.name}">+</button>
+                    <button type="button" data-qty="1" data-id="${l.id}" data-type="${l.type}" aria-label="Tambah ${l.name}">+</button>
                 </div>
                 <span class="line-total">${rupiah(l.subtotal)}</span>
-                <button type="button" class="btn-remove" data-remove="${l.id}">Hapus</button>
+                <button type="button" class="btn-remove" data-remove="${l.id}" data-type="${l.type}">Hapus</button>
             </div>
         </div>`).join('');
 
@@ -265,7 +322,7 @@ function renderCart() {
                 </div>
                 <div class="summary-actions">
                     <a href="checkout.html" class="btn btn-primary btn-block">Lanjut ke Checkout</a>
-                    <a href="produk.html" class="btn btn-outline btn-block">Tambah Menu Lain</a>
+                    <a href="produk.html" class="btn btn-outline btn-block">Tambah Bunga Lain</a>
                 </div>
             </aside>
         </div>`;
@@ -280,8 +337,8 @@ function initCartPage() {
     root.addEventListener('click', e => {
         const q = e.target.closest('[data-qty]');
         const r = e.target.closest('[data-remove]');
-        if (q) { changeQty(q.dataset.id, parseInt(q.dataset.qty, 10)); renderCart(); }
-        else if (r) { removeItem(r.dataset.remove); renderCart(); }
+        if (q) { changeQty(q.dataset.id, q.dataset.type, parseInt(q.dataset.qty, 10)); renderCart(); }
+        else if (r) { removeItem(r.dataset.remove, r.dataset.type); renderCart(); }
         else if (e.target.id === 'promo-apply') applyPromo();
     });
     root.addEventListener('keydown', e => {
@@ -296,6 +353,13 @@ function applyPromo() {
         const msg = $('#promo-msg');
         msg.textContent = 'Kode promo tidak valid';
         msg.className = 'promo-msg err';
+        return;
+    }
+    if (!promoActive(code)) {
+        store(PROMO_KEY, null);
+        renderCart();
+        const msg = $('#promo-msg');
+        if (msg) { msg.textContent = 'Kode ini hanya berlaku pada ' + PROMOS[code].dateLabel; msg.className = 'promo-msg err'; }
         return;
     }
     store(PROMO_KEY, code);
@@ -347,8 +411,8 @@ function initCheckoutPage() {
             <div class="panel empty-state">
                 <span class="big" aria-hidden="true">🛒</span>
                 <h3>Belum ada yang di-checkout</h3>
-                <p>Keranjang kamu kosong. Pilih menu dulu ya.</p>
-                <a href="produk.html" class="btn btn-primary">Lihat Menu</a>
+                <p>Keranjang kamu kosong. Pilih bunga dulu ya.</p>
+                <a href="produk.html" class="btn btn-primary">Lihat Katalog</a>
             </div>`;
         return;
     }
@@ -388,15 +452,12 @@ function initCheckoutPage() {
                         <textarea id="kartu" name="kartu" maxlength="200" placeholder="Contoh: Selamat ulang tahun, semoga selalu bahagia!"></textarea>
                     </div>
                     <div class="field">
-                        <label for="pembayaran">Metode pembayaran <span class="req">*</span></label>
-                        <select id="pembayaran" name="pembayaran" required>
-                            <option value="">Pilih metode…</option>
-                            <option>Tunai (COD)</option>
-                            <option>Transfer Bank</option>
-                            <option>GoPay</option>
-                            <option>OVO</option>
-                            <option>Dana</option>
-                        </select>
+                        <label for="kartu">link (opsional)</label>
+                        <textarea id="kartu" name="kartu" maxlength="200" placeholder="Contoh: https://spotify......."></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Metode pembayaran</label>
+                        <div class="pay-fixed"><strong>QRIS</strong> (non-tunai). Kode QRIS tampil setelah pesanan dikirim, bisa dibayar lewat e-wallet atau m-banking apa pun.</div>
                     </div>
                     <div class="field">
                         <label for="catatan">Catatan (opsional)</label>
@@ -404,7 +465,7 @@ function initCheckoutPage() {
                     </div>
                 </div>
                 <div class="summary-actions">
-                    <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Pesan Sekarang</button>
+                    <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Pesan &amp; Lanjut Bayar</button>
                     <a href="keranjang.html" class="btn btn-outline btn-block">Kembali ke Keranjang</a>
                 </div>
             </form>
@@ -432,7 +493,7 @@ function initCheckoutPage() {
         const nama = form.nama.value.trim();
         const wa = form.wa.value.replace(/[\s-]/g, '');
         const alamat = form.alamat.value.trim();
-        const pembayaran = form.pembayaran.value;
+        const pembayaran = 'QRIS';
         const catatan = form.catatan.value.trim();
         const penerima = form.penerima.value.trim();
         const tanggal = form.tanggal.value;
@@ -442,7 +503,6 @@ function initCheckoutPage() {
         if (!/^(\+62|62|0)8[0-9]{8,12}$/.test(wa)) return showError('Nomor WhatsApp tidak valid. Contoh: 081234567890');
         if (alamat.length < 10) return showError('Alamat pengiriman terlalu singkat, tulis yang lengkap ya.');
         if (!/^\d{4}-\d{2}-\d{2}$/.test(tanggal) || tanggal < todayISO()) return showError('Pilih tanggal pengiriman hari ini atau setelahnya.');
-        if (!pembayaran) return showError('Pilih metode pembayaran dulu.');
 
         const cur = calcTotals(); // hitung ulang saat submit
         if (cur.lines.length === 0) return showError('Keranjang kosong.');
@@ -450,7 +510,7 @@ function initCheckoutPage() {
         const order = {
             orderId: newOrderId(),
             nama, whatsapp: wa, penerima: penerima || nama, tanggalKirim: tanggal, alamat, kartu, catatan, pembayaran,
-            items: cur.lines.map(l => ({ id: l.id, nama: l.name, harga: l.price, qty: l.qty, subtotal: l.subtotal })),
+            items: cur.lines.map(l => ({ id: l.id, jenis: l.type, nama: l.name, harga: l.price, qty: l.qty, subtotal: l.subtotal })),
             subtotal: cur.subtotal, kodePromo: cur.code, diskon: cur.discount, total: cur.total
         };
 
@@ -467,30 +527,96 @@ function initCheckoutPage() {
             showSuccess(root, order, result.demo);
         } catch (err) {
             btn.disabled = false;
-            btn.textContent = 'Pesan Sekarang';
+            btn.textContent = 'Pesan & Lanjut Bayar';
             showError('Pesanan belum terkirim (' + err.message + '). Cek koneksi internet lalu coba lagi. Keranjang kamu masih aman.');
         }
     });
 }
 
+/* ---------- WhatsApp & QRIS ---------- */
+const WA_NUMBER = (typeof WHATSAPP_NUMBER !== 'undefined' ? String(WHATSAPP_NUMBER) : '').replace(/\D/g, '');
+const QRIS_IMAGE = (typeof SHOP_CONFIG !== 'undefined' && SHOP_CONFIG.QRIS_IMAGE) || 'images/qris.jpg';
+
+function waLink(text) {
+    return 'https://wa.me/' + WA_NUMBER + (text ? '?text=' + encodeURIComponent(text) : '');
+}
+
+function orderWhatsAppText(order) {
+    const lines = order.items.map((i, n) => (n + 1) + '. ' + i.nama + ' x' + i.qty + ' = ' + rupiah(i.subtotal)).join('\n');
+    return [
+        'Halo Aksara Flora :) ',
+        'Saya sudah memesan lewat website dan ingin lanjut ke pembayaran.',
+        '',
+        'ID Pesanan: ' + order.orderId,
+        'Nama: ' + order.nama,
+        'Penerima: ' + order.penerima,
+        'Tanggal kirim: ' + order.tanggalKirim,
+        'Alamat: ' + order.alamat,
+        order.kartu ? 'Kartu ucapan: ' + order.kartu : '',
+        order.catatan ? 'Catatan: ' + order.catatan : '',
+        '',
+        'Pesanan:',
+        lines,
+        order.diskon ? 'Diskon (' + order.kodePromo + '): -' + rupiah(order.diskon) : '',
+        'TOTAL: ' + rupiah(order.total),
+        '',
+        'Pembayaran: QRIS. Bukti pembayaran saya lampirkan di chat ini.'
+    ].filter((x, i, a) => x !== '' || (a[i - 1] !== '' && i !== 0)).join('\n');
+}
+
 function showSuccess(root, order, demo) {
+    const wa = waLink(orderWhatsAppText(order));
     root.innerHTML = `
         <div class="panel success-card">
             <span class="big" aria-hidden="true">🎉</span>
             <h3>Pesanan diterima!</h3>
             <div class="order-id"></div>
-            <p>Terima kasih, <strong class="who"></strong>. Total pesanan kamu <strong>${rupiah(order.total)}</strong>.</p>
-            <p>Bunga dijadwalkan terkirim tanggal <strong class="tgl"></strong>. Kami akan menghubungi nomor WhatsApp kamu untuk konfirmasi.</p>
+            <p>Terima kasih, <strong class="who"></strong>. Bunga dijadwalkan terkirim tanggal <strong class="tgl"></strong>.</p>
+
+            <div class="pay-steps">
+                <div class="pay-step">
+                    <span class="step-no">1</span>
+                    <div>
+                        <h4>Bayar lewat QRIS</h4>
+                        <p>Scan kode di bawah, lalu masukkan nominal <strong>${rupiah(order.total)}</strong>.</p>
+                    </div>
+                </div>
+                <div class="qris-box">
+                    <img src="${QRIS_IMAGE}" alt="QRIS Aksara Flora" class="qris-img"
+                         onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'qris-placeholder',textContent:'QRIS Aksara Flora (gambar belum dipasang)'}))">
+                    <div class="qris-total">Total bayar <strong>${rupiah(order.total)}</strong></div>
+                </div>
+                <div class="pay-step">
+                    <span class="step-no">2</span>
+                    <div>
+                        <h4>Kirim pesanan &amp; bukti bayar ke WhatsApp</h4>
+                        <p>Detail pesananmu sudah kami siapkan otomatis. Tinggal kirim, lampirkan bukti bayar, dan kamu bisa langsung tanya-tanya soal pesanannya.</p>
+                    </div>
+                </div>
+            </div>
+
             ${demo ? '<div class="demo-note">Mode demo: Google Sheets belum disambungkan, pesanan hanya tersimpan di browser ini.</div>' : ''}
             <div class="summary-actions">
-                <a href="produk.html" class="btn btn-primary">Pesan Lagi</a>
-                <a href="index.html" class="btn btn-outline">Ke Beranda</a>
+                <a href="${wa}" target="_blank" rel="noopener" class="btn btn-wa btn-block">💬 Kirim ke WhatsApp Aksara Flora</a>
+                <a href="produk.html" class="btn btn-outline btn-block">Pesan Lagi</a>
             </div>
         </div>`;
     $('.order-id', root).textContent = order.orderId;
     $('.who', root).textContent = order.nama;
     $('.tgl', root).textContent = order.tanggalKirim;
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function initWhatsAppFloat() {
+    if (!WA_NUMBER || document.body.hasAttribute('data-no-track')) return;
+    const a = document.createElement('a');
+    a.className = 'wa-float';
+    a.href = waLink('Halo Aksara Flora, saya mau tanya soal bunga :)');
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.setAttribute('aria-label', 'Chat WhatsApp Aksara Flora');
+    a.innerHTML = '<span aria-hidden="true">💬</span> Chat';
+    document.body.appendChild(a);
 }
 
 /* ---------- Start ---------- */
@@ -501,4 +627,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initCatalog();
     initCartPage();
     initCheckoutPage();
+    initWhatsAppFloat();
 });

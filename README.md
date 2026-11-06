@@ -1,6 +1,6 @@
 # Aksara Flora - Website Penjualan Bunga
 
-Website statis (HTML + CSS + JavaScript murni) untuk toko bunga online. Ada katalog 8 pilihan bunga, keranjang, checkout, dan pesanan yang otomatis masuk ke **Google Sheets** (bisa diunduh sebagai Excel `.xlsx`), plus pelacakan **Google Analytics 4**. Bisa langsung di-deploy ke **GitHub Pages**.
+Website statis (HTML + CSS + JavaScript murni) untuk toko bunga online. Ada katalog 11 produk (bunga, filler, paket) dengan foto, keranjang, checkout, dan pesanan yang otomatis masuk ke **Google Sheets** (bisa diunduh sebagai Excel `.xlsx`), plus pelacakan **Google Analytics 4**. Bisa langsung di-deploy ke **GitHub Pages**.
 
 ## Struktur File
 
@@ -21,7 +21,7 @@ Website statis (HTML + CSS + JavaScript murni) untuk toko bunga online. Ada kata
 
 ## Alur Pemesanan
 
-Katalog → **Tambah ke Keranjang** → Keranjang (atur jumlah, kode promo `BUNGA10` = diskon 10%) → **Checkout** (pemesan, penerima, tanggal kirim, alamat, kartu ucapan, pembayaran) → data masuk ke Google Sheets.
+Katalog → **Tambah ke Keranjang** → Keranjang (atur jumlah, kode promo `BEHINDTHISMOMENT` = diskon 11%, hanya berlaku 11 November 2026) → **Checkout** (pemesan, penerima, tanggal kirim, alamat, kartu ucapan) → data masuk ke Google Sheets → halaman sukses menampilkan **QRIS** + tombol **kirim pesanan ke WhatsApp**.
 
 Mengubah produk atau harga: edit array `PRODUCTS` di bagian atas `app.js`. Semua halaman ikut berubah.
 
@@ -129,3 +129,10 @@ Selama `SHEET_URL` di `config.js` masih kosong, checkout tetap jalan tapi pesana
 ## Lisensi
 
 Lihat file `LICENSE`.
+
+## Pembayaran QRIS & WhatsApp
+
+- Pembayaran hanya **QRIS** (non-tunai). Simpan gambar QRIS toko di `images/qris.jpg` (atau ubah `QRIS_IMAGE` di `config.js`). Selama file belum ada, halaman sukses menampilkan kotak placeholder.
+- Nomor WhatsApp toko diatur di `WHATSAPP_NUMBER` pada `config.js` (format `62...`, tanpa `+`).
+- Setelah checkout, pelanggan melihat QRIS dan tombol **Kirim ke WhatsApp** yang membuka chat dengan detail pesanan sudah terisi. Ada juga tombol chat WhatsApp melayang di semua halaman.
+- QRIS statis tidak bisa mengisi nominal otomatis, jadi total ditampilkan di bawah kodenya. Cek mutasi/bukti bayar dengan pesanan di Sheets sebelum diproses.
